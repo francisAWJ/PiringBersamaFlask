@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="d-flex justify-content-center mt-3">
+        <h2>Donasi</h2>
+    </div>
+    <div class="container-md mt-3">
+        <form class="form-control" action="" method="post">
+            {{ form.hidden_tag() }}
+            <p>
+                {{ form.address.label }}<br>
+                {{ form.address(size=32) }}<br>
+                {% for error in form.address.errors %}
+                <span style="color: red;">{{ error }}</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.phone_number.label }}<br>
+                {{ form.phone_number(size=32) }}<br>
+                {% for error in form.phone_number.errors %}
+                <span style="color: red;">{{ error }}</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.food_type.label }}<br>
+                {{ form.food_type(size=32) }}<br>
+                {% for error in form.food_type.errors %}
+                <span style="color: red;">{{ error }}</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.portions.label }}<br>
+                {{ form.portions(size=10) }}<br>
+                {% for error in form.portions.errors %}
+                <span style="color: red;">{{ error }}</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.food_desc.label }}<br>
+                {{ form.food_desc(size=32) }}<br>
+                {% for error in form.food_desc.errors %}
+                <span style="color: red;">{{ error }}</span>
+                {% endfor %}
+            </p>
+            <p>{{ form.submit() }}</p>
+        </form>
+    </div>
+{% endblock %}

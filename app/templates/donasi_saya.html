@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="d-flex justify-content-center mt-3">
+        <h2>Donasi Saya</h2>    
+    </div>
+
+    {% for donation in donations %}
+    <div class="d-flex justify-content-center">
+        <div class="card mt-3" style="width: 50rem;">
+            <div class="card-body">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <th scope="row">Donasi dari</th>
+                            <td>{{ current_user.first_name }} {{ current_user.last_name }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Tanggal donasi</th>
+                            <td>{{ donation.donation_date }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Jenis makanan</th>
+                            <td>{{ donation.food_type }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Jumlah porsi</th>
+                            <td>{{ donation.portions }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Deskripsi</th>
+                            <td>{{ donation.food_desc }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+{% endblock %}

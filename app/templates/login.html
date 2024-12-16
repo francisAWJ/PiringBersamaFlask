@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="d-flex justify-content-center mt-3">
+        <h2>Sign in</h2>
+    </div>
+    <div class="container-md mt-3">
+        <form action="" method="post" novalidate>
+            {{ form.hidden_tag() }}
+        <p>
+            {{ form.username.label }}<br>
+            {{ form.username(size=32) }}
+            {% for error in form.username.errors %}
+                <span style="color: red;">{{ error }}</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.password.label }}<br>
+            {{ form.password(size=32) }}
+            {% for error in form.password.errors %}
+                <span style="color: red;">{{ error }}</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
+        </form>
+        <small>Belum punya akun? <a href="{{ url_for('register') }}">Daftar disini</a></small>
+    </div>
+{% endblock %}
